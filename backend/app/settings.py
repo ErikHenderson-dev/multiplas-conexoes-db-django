@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# contatos.apps.ContatosConfig
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app.firstapp.apps.FirstappConfig',
+    'app.lastapp.apps.LastappConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,8 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {},
+    'banco_1': {
         'ENGINE': config('ENGINE'),
         'NAME': config('NAME'),
         'USER': config('USER'),
@@ -92,6 +95,8 @@ DATABASES = {
         'PORT': config('PORT')
     }
 }
+
+DATABASE_ROUTERS = ['app.router.BancoFirstRouter', 'app.router.BancoLastRouter']
 
 
 # Password validation
