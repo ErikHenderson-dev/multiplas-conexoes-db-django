@@ -28,7 +28,6 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 # contatos.apps.ContatosConfig
 INSTALLED_APPS = [
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'app.firstapp.apps.FirstappConfig',
     'app.lastapp.apps.LastappConfig'
 ]
@@ -96,7 +96,10 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['app.router.BancoFirstRouter', 'app.router.BancoLastRouter']
+DATABASE_ROUTERS = [
+    'app.router.BancoFirstRouter', 
+    'app.router.BancoLastRouter'
+]
 
 
 # Password validation
@@ -136,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
